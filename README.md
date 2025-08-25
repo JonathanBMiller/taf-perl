@@ -98,6 +98,12 @@ perl taf.pl --prop=./properties/examples/test_01.template_hello.properties --ite
 
 Of course, the test suite pm can have tons of private sub functions....
 
+## Tested on
+- Windows 11 Pro Architecture: 64-bit (x64)
+   - perl 5, version 40, subversion 2 (v5.40.2) built for MSWin32-x64-multi-thread
+- Linux Ubuntu 20.04.6 LTS Focal
+  - perl 5, version 30, subversion 0 (v5.30.0) built for x86_64-linux-gnu-thread-multi    
+
 ## Contributing
 
 Contributions, suggestions, and feedback are welcome!  
