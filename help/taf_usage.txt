@@ -1,5 +1,5 @@
 
-Usage: AF command-line option and associated properties.
+Usage: TAF command-line option and associated properties.
 
   perl taf.pl [<options>]
   perl taf.pl --property-file=/path/user_properties_file.properties
@@ -9,13 +9,13 @@ Usage: AF command-line option and associated properties.
   * command-line trumps user and default property files
   * Test Suite properties may be overridden by including the properties
     in your user property file. 
-  * AF's defaultsfile: 
+  * TAF's defaultsfile: 
     ./properties/default/ab_default.properties, is located in
-    af's default properties can also be overridden by by including
+    Taf's default properties can also be overridden by by including
     the properties in your user property file. While properties can
     be changed in default files, it is strongly recommended to always
     use user property files to override.
-  * AF runs off of action, commandline, and user's properties files.
+  * TAF runs off of action, commandline, and user's properties files.
 
   {actions}
 
@@ -41,7 +41,7 @@ Usage: AF command-line option and associated properties.
   P = taf.action=<action>
 
 
-   {af Options}
+   {taf Options}
 
    O =  --comment="comment"
    P =  taf.comment="comment"
@@ -59,7 +59,7 @@ Usage: AF command-line option and associated properties.
 
    O =  --environment-variables=env;value,env;value,env;value,etc..
    P =  taf.environment_variables=env;value,env;value,env;value,etc..
-                   : Allows users to pass in system Environment Vars and values for af to set
+                   : Allows users to pass in system Environment Vars and values for Taf to set
 
    O =  --exit-if-test-lock-exists
    P =  taf.exit_if_test_lock_exists={true/false}
