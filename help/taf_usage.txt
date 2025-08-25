@@ -206,10 +206,6 @@ Usage: TAF command-line option and associated properties.
    P =  taf.verbose={false/true}
                     : Print to screen
 
-   O =  --verbose-dump
-   P =  taf.verbose_dump={false/true}
-                    : Will cause arrays in the XML Gen Lib to dump to std out for debugging
-
   {EXIT CODES}
 
   Normal Exit   = 0
