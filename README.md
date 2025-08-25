@@ -4,10 +4,12 @@
 
 ## Features
 
-- Simple, template-based test suite structure
+- Simple, perl module test suite structure
 - Easily extendable for custom test needs
 - Starter scripts and examples included
 - MIT Licensed for open-source use
+- Has a section for adding code to build client software
+- Has a section for adding code for backend setup (docserv, database)
 - Good for client(s) to backend testing
 
 ### Possible Extensions
@@ -72,6 +74,29 @@ perl taf.pl --prop=./properties/examples/test_01.template_hello.properties --ite
 ```
 - The first command runs a test using a sample property file.
 - The second command runs with more options: number of iterations, thread count, debug, skipping setup, and setting duration.
+
+=======
+## Test Suite Main TAF sub function calls
+- BuildClient
+- GetDefaultTests
+- GetLegalTests
+- GetTestClientVersion
+- GetTestDuration
+- GetTestSuiteRevision
+- GetTestSuiteVersion
+- GetThreads
+- Help
+- InstancesEnabled
+- MultiThreadEnabled
+- PreTestSetup
+- StrictTestValidation
+- TestCleanup
+- TestPost
+- TestRun
+- TestSetup
+- TSParseProperty
+
+Of course, the test suite pm can have tons of private sub functions....
 
 ## Contributing
 

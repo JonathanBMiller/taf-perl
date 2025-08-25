@@ -1,0 +1,217 @@
+
+Usage: AF command-line option and associated properties.
+
+  perl taf.pl [<options>]
+  perl taf.pl --property-file=/path/user_properties_file.properties
+  perl taf.pl [<options>] --property-file=/path/user_properties_file.properties
+
+  Notes:
+  * command-line trumps user and default property files
+  * Test Suite properties may be overridden by including the properties
+    in your user property file. 
+  * AF's defaultsfile: 
+    ./properties/default/ab_default.properties, is located in
+    af's default properties can also be overridden by by including
+    the properties in your user property file. While properties can
+    be changed in default files, it is strongly recommended to always
+    use user property files to override.
+  * AF runs off of action, commandline, and user's properties files.
+
+  {actions}
+
+   archive       : Used to only acrhive results if needed
+
+   run           : Used to call RunTest directly
+
+   setup         : Used to setup clients and backend
+
+   setup_client  : Used to only setup clients
+
+   setup_backend : Used to setup backend only
+   
+   setup_run     : Build client, setup backed, run test(s) cases;
+
+   test_cleanup  : Used to run test cleanup directly
+
+   test_post     : Used to run test post directly
+
+   test_setup    : Used to run test setup directly
+
+  O = --action=<action>
+  P = taf.action=<action>
+
+
+   {af Options}
+
+   O =  --comment="comment"
+   P =  taf.comment="comment"
+                   : Used to enter a comment about test.(Max 150 Char)
+
+   O =  --compress-archive
+   P =  taf.compress_archive={false/true}
+                   : Turn compression on for archived results
+
+   O = --do-test-setup-every-test
+   P = taf.do_test_setup_every_test={false/true}
+                   : Have af call Test Setup for every test being ran
+                   : Note use_restore takes precedence
+                   : Default(false)
+
+   O =  --environment-variables=env;value,env;value,env;value,etc..
+   P =  taf.environment_variables=env;value,env;value,env;value,etc..
+                   : Allows users to pass in system Environment Vars and values for af to set
+
+   O =  --exit-if-test-lock-exists
+   P =  taf.exit_if_test_lock_exists={true/false}
+                   : Exit if file TEST.LOCK exists
+                   : Leftover from using TestQueueManager.pl
+                   : By setting to true, af will not run if TEST.LOCK
+                   : file already exists.
+                   : Default(false)
+
+   O =  --instances=<int>
+   P =  taf.instances=<int>
+                   : For TS's that are able to spawn more than 1 instance.
+                   : Sets how many sessions to spawn.
+                   : Default: 0 (all clients spawn at least 1 process)
+
+   O =  --host=<host>
+   P =  taf.host=<host>
+                   : Current host script is running on
+
+   O =  --logs-dir=<path>
+   P =  taf.logs_dir=<path>
+                   : Where to put logs, Default(./logs)
+
+   O =  --property-file=<path/filename>
+   P =  taf.property_file=<path/filename>
+                   : Users Test Property file path and name
+               NOTE: Users may use a property file to run tests along with, or instead of command-line options.
+
+   O =  --results-dir=<path>
+   P =  taf.results_dir=<path>
+                   : Default (automation_framework/results)
+                   : Where to put the results sub directories
+
+   O =  --sleep-after-test-setup=<seconds>
+   P =  taf.sleep_after_test_setup=<seconds>
+                   : Default 0
+                   : Sleep X seconds after test setup
+
+   O =  --sleep-after-test-run=<seconds>
+   P =  taf.sleep_after_test_run=<seconds>
+                   : Default 0
+                   :# Sleep X seconds after test run
+
+   O =  --sleep-before-test-run=<seconds>
+   P =  taf.sleep_before_test_run=<seconds>
+                   : Default 0
+                   :# Sleep X seconds before test run
+
+   O =  --skip-client-builds
+   P =  taf.skip_client_builds={true/false}
+                   : Default (false)
+                   : Skip building client exe's during "setup" actions
+
+   O =  --skip-test-cleanup
+   P =  taf.skip_test_cleanup={true/false}
+                   : Default (false)
+                   : Skip calling TestCleanup
+                   : Useful when you want the database left over after run
+
+   O =  --skip-test-post
+   P =  taf.skip_test_post={true/false}
+                   : Default (false)
+                   : Skip calling TestPost
+                   : Useful when you want the database left over after run
+
+   O =  --skip-test-setup
+   P =  taf.skip_test_setup={true/false}
+                   : Default (false)
+                   : Skip calling TestSetup
+                   : Useful when server is already setup
+
+   O =  --override-skip-test-setup
+   P =  taf.skip_skip_test_setup={true/false}
+                   : Default (false)
+                   : Turn off Skip calling TestSetup
+                   : Useful when server skip flag is set in properties file.
+
+   O =  --test-type=<type>
+   P =  taf.test_type=<type>
+                   : Used to record the type of testing being done.
+                   : Default(adhoc)
+                   : Use --list-test-types to generate a list of approved types and info.
+
+   O =  --tmp-dir=<temp-dir-path>
+   P =  taf.tmp_dir=<temp-dir-path>
+                   : The temp directory af is to use.
+                   : Default(./tmp)
+
+ {Test Specific Args}
+
+   O =  --duration=<seconds>
+   P =  taf.duration=<seconds>
+                   : How long to run each test, Default(30)
+
+   O =  --iterations=<number>
+   P =  taf.iterations=<number>
+                   : How many iterations to run test, Default(1)
+
+   O =  --tests="testname,testname"
+   P =  taf.tests="testname,testname"
+                   : Run only certain test from a test suite, Default(none)
+
+   O =  --test-suite=<testSuite>
+   P =  taf.test_suite=<testSuite>
+                   : Test suite to run, Default(template)
+
+   O =  --test-suite-properties=key=value,key=value,etc..,
+                   : Pass these properties to test suite to override both
+                     defaults and user properties file settings.
+                     NOTE: Key name must match test suite property key name.
+
+   O =  --threads="thread,thread, thread"
+   P =  taf.threads="thread,thread, thread"
+                    : List of threads to run
+  {Misc}
+
+   O =  --tools-debug
+   P =  taf.tools_debug={false/true}
+                    : Turn on debug stdout for some perl_mod tools
+                    : Default (false)
+
+   O =  --help
+   P =  none
+                    : Prints this usage
+
+   O =  --list-actions
+   P =  none
+                    : Prints out all actions af handles
+
+   O =  --list-test-suites
+   P =  none
+                    : Prints installed Test Suite Perl Modules
+
+   O =  --list-test-suites-help
+   P =  none
+                    : Prints HELP from installed Test Suite Perl Modules
+                      NOTE: --test-suite=<suite> maybe be used to print help from just one TSPM. if not used all TSPM will print help.
+
+   O =  --list-test-types
+   P =  none
+                    : Prints a list of test types that can be used
+
+   O =  --verbose
+   P =  taf.verbose={false/true}
+                    : Print to screen
+
+   O =  --verbose-dump
+   P =  taf.verbose_dump={false/true}
+                    : Will cause arrays in the XML Gen Lib to dump to std out for debugging
+
+  {EXIT CODES}
+
+  Normal Exit   = 0
+  Script Error  = 1
+  Script Killed = 2
