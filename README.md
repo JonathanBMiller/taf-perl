@@ -2,6 +2,8 @@
 
 **TAF-Perl** (Test Automation Framework - Perl) is a basic, extensible test framework written in Perl. It serves as a launching pad for anyone looking to build their own test framework without starting from scratch.
 
+**TAF-Perl-MariaDB** The full MariaDB Foundation version is located at: https://github.com/MariaDB/TAF
+
 ## Features
 
 - Simple, perl module test suite structure
